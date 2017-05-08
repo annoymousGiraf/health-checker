@@ -20,4 +20,4 @@ after_script:
   - git config user.name "annoymousGiraf"
   - git commit -m "updating outputs"
  
-  - git push -f "https://${GITHUB_TOKEN}@github.com/annoymousGiraf/health-checker" gh-pages > /dev/null 2>&1
+  - git push -f "https://$GITHUB_TOKEN@github.com/annoymousGiraf/health-checker" gh-pages > /dev/null 2>&1
