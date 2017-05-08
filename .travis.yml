@@ -1,17 +1,6 @@
 language: java
-
-jdk:
-  - oraclejdk8
-
-os:
-  - linux
-
-branches:
-  only:
-    - master
-
 cache:
-  directories:
-  - $HOME/.gradle
+  directories: $HOME/.gradle
 
-./gradlew distTar
+script:
+   ./gradlew distTar
