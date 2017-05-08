@@ -1,2 +1,17 @@
 language: java
-gradle distTar
+
+jdk:
+  - oraclejdk8
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+./gradlew distTar
