@@ -19,5 +19,5 @@ after_script:
   # First Last
   - git config user.name "annoymousGiraf"
   - git commit -m "updating outputs"
-  # https://${GH_TOKEN}@github.com/asciidoctor/asciidoctor-gradle-examples.git
-  - git push -f "https://github.com/annoymousGiraf/health-checker" gh-pages > /dev/null 2>&1
+ 
+  - git push -f "https://${GITHUB_TOKEN}@github.com/annoymousGiraf/health-checker" gh-pages > /dev/null 2>&1
