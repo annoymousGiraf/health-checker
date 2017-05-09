@@ -12,7 +12,9 @@ email:
       - sara.movshovitz@tufin.com
       - roei.buxbaum@tufin.com
       - maayan.langer@tufin.com
-      - yossi.assor@tufin.com
-script:
-   ./gradlew distTar
-travis setup releases
+      - yossi.assor@tufin.com 
+deploy:
+ provider: script
+    script:   ./gradlew distTar
+    on:
+      branch: master
