@@ -6,7 +6,7 @@ cache:
 notifications:
   email:
       - guy.peleg@tufin.com
-      - stas.o@tufin.com
+      - Stas.Obydionnov@tufin.com
       - marina.bunin@tufin.com
       - shoshy.kraus@tufin.com
       - sara.movshovitz@tufin.com
@@ -23,4 +23,4 @@ deploy:
     secure: $GITHUB_TOKEN
   provider: releases
   file_glob: true
-  file: build/*
+  file: build/*.tar
