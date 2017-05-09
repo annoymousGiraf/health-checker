@@ -5,7 +5,6 @@ cache:
   directories: $HOME/.gradle
 notifications:
   email:
-    recipients:
       - guy.peleg@tufin.com
       - stas.o@tufin.com
       - marina.bunin@tufin.com
