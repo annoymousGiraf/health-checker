@@ -3,7 +3,8 @@ jdk:
   oraclejdk8
 cache:
   directories: $HOME/.gradle
-email:
+notifications:
+  email:
     recipients:
       - guy.peleg@tufin.com
       - stas.o@tufin.com
