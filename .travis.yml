@@ -15,12 +15,4 @@ email:
       - yossi.assor@tufin.com
 script:
    ./gradlew distTar
-before_deploy:
-  - export RELEASE_PKG_FILE=$(ls *.*)
-  - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
-deploy:
-  provider: releases
-  api_key:
-    secure: $GITHUB_TOKEN
-  file_glob: true
-  file: "${RELEASE_PKG_FILE}"
+travis setup releases
