@@ -3,7 +3,16 @@ jdk:
   oraclejdk8
 cache:
   directories: $HOME/.gradle
-
+email:
+    recipients:
+      - guy.peleg@tufin.com
+      - stas.o@tufin.com
+      - marina.bunin@tufin.com
+      - shoshy.kraus@tufin.com
+      - sara.movshovitz@tufin.com
+      - roei.buxbaum@tufin.com
+      - maayan.langer@tufin.com
+      - yossi.assor@tufin.com
 script:
    ./gradlew distTar
 deploy:
