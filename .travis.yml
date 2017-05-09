@@ -24,5 +24,3 @@ deploy:
     secure: YOUR_ENCRYPTED_API_KEY
   file_glob: true
   file: "${RELEASE_PKG_FILE}"
-  on:
-    tags: true
