@@ -19,6 +19,8 @@ before_deploy:
   - ls -R
 deploy:
   skip_cleanup: true
+  api_key:
+    secure: $GITHUB_TOKEN
   provider: releases
   file_glob: true
   file: build/*
