@@ -13,8 +13,12 @@ email:
       - roei.buxbaum@tufin.com
       - maayan.langer@tufin.com
       - yossi.assor@tufin.com 
+script:
+  ./gradlew distTar
+before_deploy:
+  - ls -R
 deploy:
-  provider: script
-  script: ./gradlew distTar
-  on:
-    branch: master
+  skip_cleanup: true
+  provider: releases
+  file_glob: true
+  file: build/*
