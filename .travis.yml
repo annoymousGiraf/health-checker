@@ -14,7 +14,7 @@ email:
       - maayan.langer@tufin.com
       - yossi.assor@tufin.com 
 deploy:
- provider: script
-    script:   ./gradlew distTar
-    on:
-      branch: master
+  provider: script
+  script: ./gradlew distTar
+  on:
+    branch: master
