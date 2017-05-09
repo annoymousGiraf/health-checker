@@ -15,18 +15,14 @@ email:
       - yossi.assor@tufin.com
 script:
    ./gradlew distTar
+before_deploy:
+  - export RELEASE_PKG_FILE=$(ls *.deb)
+  - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  provider: releases
+  api_key:
+    secure: YOUR_ENCRYPTED_API_KEY
+  file_glob: true
+  file: "${RELEASE_PKG_FILE}"
   on:
-    branch: master
-after_script:
-  - git add .
-  # something@example.com
-  - git config user.email "whisrael@gmail.com"
-  # First Last
-  - git config user.name "annoymousGiraf"
-  - git commit -m "updating outputs"
- 
-  - git push -f "https://$GITHUB_TOKEN@github.com/annoymousGiraf/health-checker" gh-pages > /dev/null 2>&1
+    tags: true
