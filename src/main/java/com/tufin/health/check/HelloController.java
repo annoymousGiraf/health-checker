@@ -19,8 +19,8 @@ public class HelloController {
         return pluginService.getListOfAllPlugins();
     }
 
-    @RequestMapping("/check/{test}")
-    public String runSinglePlugin() {
-        return "run plugin";
+    @RequestMapping("/check/{pluginName}")
+    public PluginResult runSinglePlugin(String pluginName) {
+        return pluginService.runPlugin(pluginName);
     }
 }
