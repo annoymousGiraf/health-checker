@@ -3,17 +3,17 @@
         Run All :
         <button class="btn btn-primary" ng-click="runAll()" style="border-radius: 25%;"> <span class="glyphicon glyphicon-play-circle"></span></button>
         <div class="row" ng-repeat="plugin in plugin_list" style="margin-top: 5px;">
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <button class="btn btn-success" ng-click="run_plugin(plugin.name)"> <span class="glyphicon glyphicon-play-circle"></span></button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 {{plugin.name}}
             </div>
-            <div class="col-md-4">
-                {{plugin.fileName}}
+            <div class="col-md-6">
+                {{plugin.description}} 
             </div>
             <div class="col-md-2">
-                <div id="{{plugin.name}}"></div>
+                <div id="{{plugin.name}}" ></div>
             </div>
         </div>
     </div>

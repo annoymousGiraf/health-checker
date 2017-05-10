@@ -27,7 +27,11 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
         fieldNameElement.innerHTML = '<img src="img/loading_icon.gif">';
         health_check_service.run_plugin(plugin_name).then(function (data) {
             console.log(data);
-            fieldNameElement.innerHTML = data.status;
+            var font = "green";
+            if (data.status === "Failed"){
+                font ="red";
+            }
+            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+data.status+"</p>";
         });
     }
 
