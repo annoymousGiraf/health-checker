@@ -23,4 +23,4 @@ deploy:
     secure: $GITHUB_TOKEN
   provider: releases
   file_glob: true
-  file: build/*.tar
+  file: build/distributions/health-check-1.0-SNAPSHOT.tar
