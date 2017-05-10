@@ -24,7 +24,7 @@ def execute() {
     prop.setProperty("db.url", "jdbc:postgresql://192.168.133.105:5432/securetrack")
     prop.setProperty("db.username", "postgres")
     prop.setProperty("db.password", "")
-    prop.setProperty("db.initialPoolSize", 1)
+    //prop.setProperty("db.initialPoolSize", 1)
 
 //    new File("../db.properties").withInputStream { p ->
 //        prop.load(p)
