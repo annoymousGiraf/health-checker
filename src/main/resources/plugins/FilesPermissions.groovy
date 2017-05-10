@@ -26,7 +26,7 @@ def execute() {
         def fileInfo = fileLine.split("\\s+")
 
         if (fileInfo.size() == 9) {
-            println "Yahoo " + fileInfo[0] + ", " + fileInfo[2] + ", " + fileInfo[3] + ", " + fileInfo[8]
+            println "File " + fileInfo[0] + ", " + fileInfo[2] + ", " + fileInfo[3] + ", " + fileInfo[8]
             ownerDefinition.each { reqs ->
                 if (fileInfo[8] ==~ reqs[0]) {
                     if (fileInfo[2] != reqs[1] && fileInfo[3] != reqs[2]) {
