@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/health")
@@ -20,8 +21,12 @@ public class HelloController {
         return pluginService.getListOfAllPlugins();
     }
 
-    @RequestMapping("/check/{pluginName}")
-    public PluginResult runSinglePlugin(@PathVariable String pluginName) {
-        return pluginService.runPlugin(pluginName);
+    @RequestMapping(value = {"/check/{pluginName}", "/check/{pluginName}/{args}"})
+    public PluginResult runSinglePlugin(@PathVariable String pluginName, @PathVariable Optional<String> args) {
+        String arguments = "";
+        if(args.isPresent()){
+            arguments = args.get();
+        }
+        return pluginService.runPlugin(pluginName, arguments);
     }
 }
