@@ -1,0 +1,21 @@
+<div ng-controller="HealthCheckController">
+    <div class="container-fluid">
+        Run All :
+        <button class="btn btn-success"> <span class="glyphicon glyphicon-play-circle"></span></button>
+        <div class="row" ng-repeat="plugin in plugin_list" style="margin-top: 5px;">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+                {{plugin.name}}
+            </div>
+            <div class="col-md-4">
+                {{plugin.fileName}}
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success"> <span class="glyphicon glyphicon-play-circle"></span></button>
+            </div>
+        </div>
+    </div>
+
+</div>
