@@ -33,30 +33,40 @@ public class GroovyRunner {
         m.invoke(script);
     }
 
-    public String RunScriptFile(String fileName)  {
-
-        final Object groovyObject;
+    public String executeScriptFile(String fileName)  {
         try {
-            groovyObject = shell.evaluate(requestResourceFile(fileName));
-            PluginScript pluginScript = (PluginScript) Proxy.newProxyInstance(this.getClass().getClassLoader(),
-                    new Class[]{PluginScript.class},
-                    new InvocationHandler() {
-                        @Override
-                        public Object invoke(Object proxy, Method method, Object[] args)
-                                throws Throwable {
-                            Method m = groovyObject.getClass().getMethod(method.getName());
-                            return m.invoke(groovyObject, args);
-                        }});
-
-            String description = pluginScript.getDescription();
-            LOGGER.info("Print the description {}", description);
-
+            PluginScript pluginScript = getPluginScript(fileName);
             return pluginScript.execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "cannot execute plugin";
+    }
 
+    public String getDescription(String fileName)  {
+        try {
+            PluginScript pluginScript = getPluginScript(fileName);
+            return pluginScript.getDescription();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "cannot execute plugin";
+
+    }
+
+    private PluginScript getPluginScript(String fileName) throws IOException {
+        final Object groovyObject;
+        groovyObject = shell.evaluate(requestResourceFile(fileName));
+        return (PluginScript) Proxy.newProxyInstance(this.getClass().getClassLoader(),
+                new Class[]{PluginScript.class},
+                new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args)
+                            throws Throwable {
+                        Method m = groovyObject.getClass().getMethod(method.getName());
+                        return m.invoke(groovyObject, args);
+                    }
+                });
     }
 
 

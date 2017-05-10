@@ -25,7 +25,7 @@ public class GroovyRunnerTest {
 
     @Test
     public void testFile2() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        groovyRunner.RunScriptFile("test2.groovy");
+        groovyRunner.executeScriptFile("test2.groovy");
     }
 
 

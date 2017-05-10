@@ -24,8 +24,8 @@ public class PluginService {
         GroovyRunner g = new GroovyRunner();
 
 //        PluginObject pluginByName = pluginTable.getPluginByName(PluginName);
-//        String result = g.RunScriptFile(pluginByName.getFileName());
-        String result = g.RunScriptFile("test2.groovy");
+//        String result = g.executeScriptFile(pluginByName.getFileName());
+        String result = g.executeScriptFile("test2.groovy");
         return new PluginResult("OK", result, "");
     }
 }
