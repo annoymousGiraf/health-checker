@@ -14,7 +14,7 @@ def execute() {
     def sout = new StringBuilder(), serr = new StringBuilder()
     def proc = ('ls -l ' + logs_dir).execute()
     proc.consumeProcessOutput(sout, serr)
-
+    proc.waitForOrKill(10000)
     def fileLines = sout.toString().split('\n')
 
 //    def res = '{"status":"OK","details":"test succeeded","solution_suggestion":""}'
@@ -39,5 +39,4 @@ def execute() {
     }
     return res1
 }
-this
 
