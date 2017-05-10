@@ -100,11 +100,12 @@ def execute() {
         // no rows --> no locks
     }
 
+
     if(resultList.size() > 0)
     {
-        return '{"status":false}'
+        return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
     }
-    return '{"status":true}'
+    return ["status":"Failed", "details":"Found one or more locks", "solution_suggestion":"Contact Tufin support"]
 }
 
 def getDescrption(){

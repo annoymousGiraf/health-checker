@@ -44,9 +44,9 @@ def execute() {
 
     if(resultList.size() > 0)
     {
-        return '{"status":false}'
+        return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
     }
-    return '{"status":true}'
+    return ["status":"Failed", "details":"One or more tables exceeded "+100+" MB", "solution_suggestion":"Run vacuum on large tables"]
 }
 
 def getDescription()
