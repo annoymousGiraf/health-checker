@@ -7,13 +7,16 @@ public class PluginResult {
     private String details;
     private String solution_suggestion;
 
-    PluginResult(){}
+    PluginResult() {
+    }
+
     PluginResult(String status, String details, String solution_suggestion) {
         this.status = status;
         this.details = details;
         this.solution_suggestion = solution_suggestion;
     }
-    PluginResult(Map<String,String> resultMap){
+
+    PluginResult(Map<String, String> resultMap) {
         this.status = resultMap.get("status");
         this.details = resultMap.get("details");
         this.solution_suggestion = resultMap.get("solution_suggestion");

@@ -7,8 +7,10 @@ public class PluginObject {
     private String fileName;
     private String description;
 
-    public PluginObject(){}
-    public PluginObject(String name, String fileName, String description){
+    public PluginObject() {
+    }
+
+    public PluginObject(String name, String fileName, String description) {
         this.name = name;
         this.fileName = fileName;
         this.description = description;

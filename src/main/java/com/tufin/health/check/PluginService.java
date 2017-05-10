@@ -18,7 +18,7 @@ public class PluginService {
     private PluginTable pluginTable = new PluginTable();
     private final String SUPPORTED_TYPES = ".groovy";
 
-    PluginService(){
+    PluginService() {
 
         File pluginDirectory = new File("/usr/local/st/healthcheck/plugins");
         File[] pluginFiles = pluginDirectory.listFiles();
@@ -29,10 +29,10 @@ public class PluginService {
                     .filter(file -> file.getName().contains(SUPPORTED_TYPES))
                     .collect(Collectors.toList());
 */
-        if(pluginFiles != null) {
+        if (pluginFiles != null) {
             List<File> scriptFiles = Arrays.asList(pluginFiles);
 
-            if(scriptFiles == null){
+            if (scriptFiles == null) {
                 LOGGER.error("scriptFiles is null");
             }
 
@@ -43,8 +43,8 @@ public class PluginService {
 
                         String fileName = file.getName();
                         LOGGER.info("fileName:" + fileName);
-                        if(fileName.contains(SUPPORTED_TYPES)) {
-                            if(g == null){
+                        if (fileName.contains(SUPPORTED_TYPES)) {
+                            if (g == null) {
                                 LOGGER.error("GroovyRunner is null");
                             }
                             String description = g.getDescription(file.getPath());
@@ -56,19 +56,18 @@ public class PluginService {
 
     }
 
-    public List<PluginObject> getListOfAllPlugins(){
+    public List<PluginObject> getListOfAllPlugins() {
         return pluginTable.getListOfAllPlugins();
     }
 
-    public PluginResult runPlugin(String pluginName, String arguments){
+    public PluginResult runPlugin(String pluginName, String arguments) {
         GroovyRunner g = new GroovyRunner();
 
         PluginObject pluginObject = pluginTable.getPluginByName(pluginName);
-        if( pluginObject != null ) {
-            Map<String,String> result = g.executeScriptFile(pluginObject.getFileName());
+        if (pluginObject != null) {
+            Map<String, String> result = g.executeScriptFile(pluginObject.getFileName());
             return new PluginResult(result);
-        }
-        else{
+        } else {
             return new PluginResult("Failed", "No such plugin: " + pluginName, "arguments: " + arguments);
         }
     }

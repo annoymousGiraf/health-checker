@@ -24,7 +24,7 @@ public class HelloController {
     @RequestMapping(value = {"/check/{pluginName}", "/check/{pluginName}/{args}"})
     public PluginResult runSinglePlugin(@PathVariable String pluginName, @PathVariable Optional<String> args) {
         String arguments = "";
-        if(args.isPresent()){
+        if (args.isPresent()) {
             arguments = args.get();
         }
         return pluginService.runPlugin(pluginName, arguments);
