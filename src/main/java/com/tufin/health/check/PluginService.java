@@ -36,7 +36,7 @@ public class PluginService {
                         String fileName = file.getName();
                         if(fileName.contains(SUPPORTED_TYPES)) {
                             String pluginName = fileName.substring(0, fileName.lastIndexOf(SUPPORTED_TYPES));
-                            pluginTable.addPluginObject(pluginName, new PluginObject(pluginName, fileName));
+                            pluginTable.addPluginObject(pluginName, new PluginObject(pluginName, file.getPath()));
                         }
                     });
         }

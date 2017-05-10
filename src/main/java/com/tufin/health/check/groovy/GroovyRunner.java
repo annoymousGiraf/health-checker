@@ -78,7 +78,7 @@ public class GroovyRunner {
             }
         } else {
             LOGGER.info("found absolute path {}" , PLUGIN_DIRECTORY + fileName);
-            return new File(PLUGIN_DIRECTORY + fileName);
+            return new File(fileName);
         }
         return null;
     }
