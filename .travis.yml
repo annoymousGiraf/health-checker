@@ -20,7 +20,9 @@ before_deploy:
 deploy:
   skip_cleanup: true
   api_key:
-    secure: $GITHUB_TOKEN
+    secure: ${GITHUB_TOKEN}
   provider: releases
   file_glob: true
   file: build/distributions/health-check-1.0-SNAPSHOT.tar
+  on:
+    tags: false
