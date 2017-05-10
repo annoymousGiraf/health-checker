@@ -2,16 +2,18 @@ package com.tufin.health.check;
 
 
 import com.tufin.health.check.groovy.GroovyRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class PluginService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GroovyRunner.class);
 
     private PluginTable pluginTable = new PluginTable();
     private final String SUPPORTED_TYPES = ".groovy";
@@ -30,13 +32,21 @@ public class PluginService {
         if(pluginFiles != null) {
             List<File> scriptFiles = Arrays.asList(pluginFiles);
 
+            if(scriptFiles == null){
+                LOGGER.error("scriptFiles is null");
+            }
+
             scriptFiles.stream()
                     .forEach(file -> {
 //                                String pluginName = file.getName().substring(0, file.getName().lastIndexOf(SUPPORTED_TYPES));
 //                                pluginTable.addPluginObject( pluginName, new PluginObject(pluginName, file.getName()));
 
                         String fileName = file.getName();
+                        LOGGER.info("fileName:" + fileName);
                         if(fileName.contains(SUPPORTED_TYPES)) {
+                            if(g == null){
+                                LOGGER.error("GroovyRunner is null");
+                            }
                             String description = g.getDescription(file.getPath());
                             String pluginName = fileName.substring(0, fileName.lastIndexOf(SUPPORTED_TYPES));
                             pluginTable.addPluginObject(pluginName, new PluginObject(pluginName, file.getPath(), description));

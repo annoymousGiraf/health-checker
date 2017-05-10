@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class GroovyRunner {
 
-    private static final String PLUGIN_DIRECTORY = "/tmp/";
     private static final Logger LOGGER = LoggerFactory.getLogger(GroovyRunner.class);
     private GroovyShell shell;
     public GroovyRunner() {
@@ -80,7 +79,7 @@ public class GroovyRunner {
                 e.printStackTrace();
             }
         } else {
-            LOGGER.info("found absolute path {}" , PLUGIN_DIRECTORY + fileName);
+            LOGGER.info("found absolute path {}" , fileName);
             return new File(fileName);
         }
         return null;
