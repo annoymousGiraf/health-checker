@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li ng-class="{active: state == 'home'}"><a href="#" ui-sref="home" ng-click="updateState('home')"><span class="glyphicon glyphicon-home"></span> Home <span class="sr-only">(current)</span></a></li>
-                        <li ng-class="{active: state == 'health-check'}"><a href="#" ng-click="updateState('health-check')" ><span class="glyphicon glyphicon-dashboard"></span> Health-Check</a></li>
+                        <li ng-class="{active: state == 'health-check'}"><a href="#" ui-sref="health_check" ng-click="updateState('health-check')" ><span class="glyphicon glyphicon-dashboard"></span> Health-Check</a></li>
                         <li ng-class="{active: state == 'manage-plugins'}"><a href="#" ui-sref="manage_plugins" ng-click="updateState('manage-plugins')"><span class="glyphicon glyphicon-wrench"></span> Manage Plugins</a></li>
                     </ul>
                 </div>

@@ -29,7 +29,15 @@ healthCheck.config(function($stateProvider,$urlRouterProvider) {
 
     };
 
+    var health_check = {
+        name: 'health-check',
+        url: '/health-check',
+        templateUrl: 'html/health-check.html',
+
+    };
+
     $urlRouterProvider.otherwise('/');
     $stateProvider.state(homepage);
     $stateProvider.state(manage_plugins);
+    $stateProvider.state(health_check);
 });
