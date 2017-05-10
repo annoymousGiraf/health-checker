@@ -1,5 +1,7 @@
 package com.tufin.health.check;
 
+
+import com.tufin.health.check.Groovy.GroovyRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class PluginService {
     }
 
     public PluginResult runPlugin(String PluginName){
-        return new PluginResult("OK", "test succeeded", "");
+        GroovyRunner g = new GroovyRunner();
+
+//        PluginObject pluginByName = pluginTable.getPluginByName(PluginName);
+//        String result = g.RunScriptFile(pluginByName.getFileName());
+        String result = g.RunScriptFile("test2.groovy");
+        return new PluginResult("OK", result, "");
     }
 }
