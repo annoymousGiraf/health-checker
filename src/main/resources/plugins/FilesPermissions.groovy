@@ -20,6 +20,8 @@ def execute() {
 //    def res = '{"status":"OK","details":"test succeeded","solution_suggestion":""}'
     def res1 = ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
 
+    problematicFiles = []
+
     fileLines.each { fileLine ->
         def fileInfo = fileLine.split("\\s+")
 
@@ -28,19 +30,22 @@ def execute() {
             ownerDefinition.each { reqs ->
                 if (fileInfo[8] ==~ reqs[0]) {
                     if (fileInfo[2] != reqs[1] && fileInfo[3] != reqs[2]) {
-                        res1["status"] = "Failed"
-                        res1["details"] = fileInfo[8] + " has incorrect owner"
-                        res1["solution_suggestion"] = "Change owner of the file to " + reqs[1] + ":" + reqs[2]
-                        //res = '{"status":"Failed","details":"' + fileInfo[8] + ' has incorrect owner","solution_suggestion":"Change owner of the file to "' + reqs[1] + ':' + reqs[2] +'"}'
+                        problematicFiles << fileInfo[8]
                     }
                 }
             }
         }
     }
+
+    if(problematicFiles.size() > 0) {
+        res1["status"] = "Failed"
+        res1["details"] = problematicFiles.toString() + " has incorrect owner"
+        res1["solution_suggestion"] = "Change owner of the file to correct user"
+    }
     return res1
 }
 
 def getDescription(){
-    return "The description"
+    return "Checks executable files owner"
 }
 this
