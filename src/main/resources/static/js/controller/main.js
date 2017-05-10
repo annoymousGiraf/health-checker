@@ -29,8 +29,8 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
             fieldNameElement.innerHTML = data.status;
         });
     }
+
     $scope.runAll = function () {
-        console.log("WTF!!!");
         angular.forEach($scope.plugin_list, function(value, key) {
             $scope.run_plugin(value.name);
         });
