@@ -22,7 +22,7 @@ sql.connection.autoCommit = false
 
 def query = "SELECT id, mgmt_id, date, time, ready, management_name, management_ip, management_type \n" +
         "FROM cp_version cp join managements mgmt on cp.mgmt_id=mgmt.management_id \n" +
-        "WHERE ready = false and id in\n" +
+        "WHERE ready = false and date < now()::date - 1 and id in\n" +
         "    (SELECT max(id) FROM nst_configuration GROUP BY mgmt_id) ORDER BY id;"
 
 sql.eachRow(query) { row ->
