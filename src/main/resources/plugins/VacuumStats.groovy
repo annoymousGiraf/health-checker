@@ -35,3 +35,7 @@ def vacuumStatsQuery =
 sql.eachRow(vacuumStatsQuery) { row ->
     println row
 }
+
+def getDescription(){
+    return "stub"
+}

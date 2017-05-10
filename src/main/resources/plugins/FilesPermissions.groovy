@@ -40,7 +40,7 @@ def execute() {
     return res1
 }
 
-def detDesciption(){
+def getDescription(){
     return "The description"
 }
 this

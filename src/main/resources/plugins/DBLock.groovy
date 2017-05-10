@@ -108,7 +108,7 @@ def execute() {
     return ["status":"Failed", "details":"Found one or more locks", "solution_suggestion":"Contact Tufin support"]
 }
 
-def getDescrption(){
+def getDescription(){
     return "Search for DB locks"
 }
 

@@ -51,6 +51,7 @@ def execute() {
 
 def getDescription()
 {
+    def thresholdBase = "stub"
         return "Check if there are tables larger then " + thresholdBase + " MB"
 }
 
