@@ -1,5 +1,6 @@
 package com.tufin.health.check.groovy;
 
+import com.google.common.collect.ImmutableMap;
 import groovy.lang.GroovyShell;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class GroovyRunner {
@@ -29,14 +32,14 @@ public class GroovyRunner {
         m.invoke(script);
     }
 
-    public String executeScriptFile(String fileName)  {
+    public Map<String,String> executeScriptFile(String fileName)  {
         try {
             PluginScript pluginScript = getPluginScript(fileName);
             return pluginScript.execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "cannot execute plugin";
+        return ImmutableMap.of("status", "Failed", "details", "failed to execute script", "solution_suggestion", "");
     }
 
     public String getDescription(String fileName)  {

@@ -1,5 +1,7 @@
 package com.tufin.health.check;
 
+import java.util.Map;
+
 public class PluginResult {
     private String status;
     private String details;
@@ -10,6 +12,11 @@ public class PluginResult {
         this.status = status;
         this.details = details;
         this.solution_suggestion = solution_suggestion;
+    }
+    PluginResult(Map<String,String> resultMap){
+        this.status = resultMap.get("status");
+        this.details = resultMap.get("details");
+        this.solution_suggestion = resultMap.get("solution_suggestion");
     }
 
     public String getStatus() {

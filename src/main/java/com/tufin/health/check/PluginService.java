@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,8 +53,8 @@ public class PluginService {
 
         PluginObject pluginObject = pluginTable.getPluginByName(pluginName);
         if( pluginObject != null ) {
-            String result = g.executeScriptFile(pluginObject.getFileName());
-            return new PluginResult("OK", result, "arguments: " + arguments);
+            Map<String,String> result = g.executeScriptFile(pluginObject.getFileName());
+            return new PluginResult(result);
         }
         else{
             return new PluginResult("Failed", "No such plugin: " + pluginName, "arguments: " + arguments);
