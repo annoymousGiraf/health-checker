@@ -31,7 +31,7 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
             if (data.status === "Failed"){
                 font ="red";
             }
-            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+data.status+"</p>";
+            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+data.status+ " "+ data.details +"</p>";
         });
     }
 
