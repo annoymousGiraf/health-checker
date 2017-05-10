@@ -20,9 +20,15 @@ def execute() {
     println "currently limited to nst and cp_stats tables"
 
     def prop = new Properties()
-    new File("../db.properties").withInputStream { p ->
-        prop.load(p)
-    }
+    prop.setProperty("db.driverClassName", "org.postgresql.Driver");
+    prop.setProperty("db.url", "jdbc:postgresql://192.168.133.105:5432/securetrack")
+    prop.setProperty("db.username", "postgres")
+    prop.setProperty("db.password", "")
+    prop.setProperty("db.initialPoolSize", 1)
+
+//    new File("../db.properties").withInputStream { p ->
+//        prop.load(p)
+//    }
 
     println "Going to connect to " + prop.getProperty("db.url")
 
