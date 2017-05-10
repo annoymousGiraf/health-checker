@@ -1,4 +1,4 @@
-package com.tufin.health.check.Groovy;
+package com.tufin.health.check.groovy;
 
 import groovy.lang.GroovyShell;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -10,10 +10,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Properties;
 
 
 public class GroovyRunner {
@@ -27,7 +23,7 @@ public class GroovyRunner {
 
     public void RunScript() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Object script = shell.evaluate("def sayHello() { " +
-                "println com.tufin.health.check.Groovy }; this");
+                "println com.tufin.health.check.groovy }; this");
 
         Method m = script.getClass().getMethod("sayHello");
         m.invoke(script);

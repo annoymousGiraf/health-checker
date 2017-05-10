@@ -1,6 +1,6 @@
 package com.tufin.health.check;
 
-import com.tufin.health.check.Groovy.GroovyRunner;
+import com.tufin.health.check.groovy.GroovyRunner;
 import org.junit.Before;
 import org.junit.Test;
 

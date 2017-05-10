@@ -1,4 +1,4 @@
-package com.tufin.health.check.Groovy;
+package com.tufin.health.check.groovy;
 
 
 public interface PluginScript {
