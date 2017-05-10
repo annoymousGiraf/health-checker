@@ -24,7 +24,7 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
 
     $scope.run_plugin = function (plugin_name) {
         var fieldNameElement = document.getElementById(plugin_name);
-        fieldNameElement.innerHTML = '<img src=\'../../img/loading_icon.gif\'>';
+        fieldNameElement.innerHTML = '<img src="img/loading_icon.gif">';
         health_check_service.run_plugin(plugin_name).then(function (data) {
             console.log(data);
             fieldNameElement.innerHTML = data.status;
