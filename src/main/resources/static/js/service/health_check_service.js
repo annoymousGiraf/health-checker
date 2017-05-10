@@ -11,6 +11,12 @@ angular
                         return response.data;
                     }
                 );
+            },
+            run_plugin: function (pluginName) {
+            return $http.get("health/check/" + pluginName).then(function (response) {
+                    return response.data;
+                }
+            );
             }
         }
     }])

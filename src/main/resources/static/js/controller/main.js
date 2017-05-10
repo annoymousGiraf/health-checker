@@ -20,6 +20,24 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
     {
         $scope.plugin_list = data;
     });
+
+
+    $scope.run_plugin = function (plugin_name) {
+        health_check_service.run_plugin(plugin_name).then(function (data) {
+            console.log(data);
+            var fieldNameElement = document.getElementById(plugin_name);
+            fieldNameElement.innerHTML = data.status;
+        });
+    }
+    $scope.runAll = function () {
+        console.log("WTF!!!");
+        angular.forEach($scope.plugin_list, function(value, key) {
+            $scope.run_plugin(value.name);
+        });
+
+    }
+
+
 }]);
 
 healthCheck.controller('ManagePluginsController', ['$scope','health_check_service', function($scope,health_check_service) {
@@ -28,6 +46,8 @@ healthCheck.controller('ManagePluginsController', ['$scope','health_check_servic
     {
         $scope.plugin_list = data;
     });
+
+
 }]);
 
 
