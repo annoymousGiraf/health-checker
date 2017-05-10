@@ -22,6 +22,14 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
     });
 }]);
 
+healthCheck.controller('ManagePluginsController', ['$scope','health_check_service', function($scope,health_check_service) {
+    $scope.plugin_list =[];
+    health_check_service.get_plugins_list().then(function(data)
+    {
+        $scope.plugin_list = data;
+    });
+}]);
+
 
 
 healthCheck.config(function($stateProvider,$urlRouterProvider) {

@@ -3,24 +3,30 @@
 <!--to understand better the panel types http://getbootstrap.com/components/#list-group-->
 
 
-<div class="container-fluid">
-    <div class="container-fluid">
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">CPU Plug-In</h3>
-            </div>
-            <div class="panel-body">
-                The CPU usage is below 70%
-            </div>
-        </div>
+<div class="container-fluid" >
 
-        <div class="panel panel-danger">
-            <div class="panel-heading">
-                <h3 class="panel-title">RAM Plug-In</h3>
-            </div>
-            <div class="panel-body">
-                The ram usage is above 80%
-            </div>
-        </div>
-    </div>
+     <div ng-controller="ManagePluginsController">
+         <div class="panel panel-info" ng-repeat="plugin in plugin_list">
+             <div class="panel-heading">
+                 <div class="row">
+                     <div class="col-md-8">
+                         {{plugin.name}}
+                     </div>
+                     <div class="col-md-4" style="margin-top: 2px;">
+                         <div class="pull-right">
+                             <label class="switch" id="{{plugin.name}}">
+                                 <input type="checkbox">
+                                 <div class="slider round"></div>
+                             </label>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="panel-body">
+                 {{plugin.fileName}}
+             </div>
+         </div>
+     </div>
+
 </div>
+
