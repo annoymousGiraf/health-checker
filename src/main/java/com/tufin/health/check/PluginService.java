@@ -20,12 +20,11 @@ public class PluginService {
         return pluginTable.getListOfAllPlugins();
     }
 
-    public PluginResult runPlugin(String PluginName){
+    public PluginResult runPlugin(String pluginName){
         GroovyRunner g = new GroovyRunner();
 
-//        PluginObject pluginByName = pluginTable.getPluginByName(PluginName);
-//        String result = g.executeScriptFile(pluginByName.getFileName());
-        String result = g.executeScriptFile("test2.groovy");
+        PluginObject pluginObject = pluginTable.getPluginByName(pluginName);
+        String result = g.executeScriptFile(pluginObject.getFileName());
         return new PluginResult("OK", result, "");
     }
 }
