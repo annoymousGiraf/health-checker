@@ -2,17 +2,15 @@
 <html lang="en-US">
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.js"></script>
-    <script src="js/angular-route.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
     <link rel="stylesheet" href="css/bootstrap.css" >
     <script src="js/controller/main.js"></script>
-    <body>
-
-        <div ng-app="HealthCheckApp">
-            <p>Name : <input type="text" ng-model="name"></p>
-            <h1>Hello {{name}}</h1>
+    <body ng-app="HealthCheckApp">
+        <div >
+            <ui-view></ui-view>
         </div>
-
     </body>
 </html>

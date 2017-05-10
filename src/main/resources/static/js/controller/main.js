@@ -3,22 +3,21 @@
  */
 
 
-var healthCheck = angular.module('HealthCheckApp', ['ui.router','ngAnimate']);
+var healthCheck = angular.module('HealthCheckApp', ['ui.router']);
 
 
-$scope.name = "test";
 
-healthCheck.config(function($stateProvider) {
+
+healthCheck.config(function($stateProvider,$urlRouterProvider) {
 
     var homepage = {
         name: 'home',
-        url: '/home',
+        url: '/',
         templateUrl: 'html/home.html'
     };
 
 
-
-
+    $urlRouterProvider.otherwise('/');
     $stateProvider.state(homepage);
 
 });
