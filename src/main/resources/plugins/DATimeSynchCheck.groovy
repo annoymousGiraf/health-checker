@@ -4,7 +4,7 @@ import groovyx.net.http.RESTClient
 import groovy.json.JsonOutput
 
 def execute(){
-    float allowedTimeDifference = 0.2;
+    float allowedTimeDifference = 5;
     @Grab (group = 'org.codehaus.groovy.modules.http-builder', module = 'http-builder', version = '0.7')
     daList = ["10.100.16.231", "10.100.16.230"]
     //daList = ["192.168.133.105", "192.168.133.105"]

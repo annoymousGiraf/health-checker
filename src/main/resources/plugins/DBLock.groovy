@@ -13,7 +13,7 @@ println("DB Lock plugin greeting")
 def execute() {
         def prop = new Properties()
         prop.setProperty("db.driverClassName", "org.postgresql.Driver");
-        prop.setProperty("db.url", "jdbc:postgresql://192.168.133.105:5432/securetrack")
+        prop.setProperty("db.url", "jdbc:postgresql://10.100.16.233:5432/securetrack")
         prop.setProperty("db.username", "postgres")
         prop.setProperty("db.password", "")
         //prop.setProperty("db.initialPoolSize", 1)
@@ -98,7 +98,7 @@ def execute() {
 
 // based on version, run the appropriate query
     def resultList = []
-    sql.eachRow(listDBLocks90) { row ->
+    sql.eachRow(listDBLocks94) { row ->
         println row
         resultList << row
         //  client_port | blocking_pid | blocking_user | blocking_query | client_port | blocked_pid | blocked_user | blocked_query | age

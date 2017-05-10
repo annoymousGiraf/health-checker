@@ -11,7 +11,7 @@ def execute() {
 
     def prop = new Properties()
     prop.setProperty("db.driverClassName", "org.postgresql.Driver");
-    prop.setProperty("db.url", "jdbc:postgresql://192.168.133.105:5432/securetrack")
+    prop.setProperty("db.url", "jdbc:postgresql://10.100.16.233:5432/securetrack")
     prop.setProperty("db.username", "postgres")
     prop.setProperty("db.password", "")
 //    prop.setProperty("db.initialPoolSize", 1)

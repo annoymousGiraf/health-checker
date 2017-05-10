@@ -10,6 +10,6 @@ def execute(){
 def getDescription(){
     return "Checks is all servers are in synch"
 }
-
-println execute()
+this
+//println execute()
 

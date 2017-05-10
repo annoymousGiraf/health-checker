@@ -6,7 +6,7 @@ def execute() {
             ['cgi', 'apache', 'apache'],
             ['cgi\\.scw\\..+', 'apache', 'apache'],
             ['cgi\\..+', 'apache', 'apache'],
-            ['.+\\.get_.+_.+\\.log', 'apache', 'apache']
+            ['.+\\.get_.+_.+\\.log', 'st', 'st']
     ]
 
     def logs_dir = "/var/log/st"
