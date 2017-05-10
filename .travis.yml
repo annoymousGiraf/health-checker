@@ -24,5 +24,3 @@ deploy:
   provider: releases
   file_glob: true
   file: build/distributions/health-check-1.0-SNAPSHOT.tar
-  on:
-    tags: false
