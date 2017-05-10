@@ -14,8 +14,8 @@ new File("../db.properties").withInputStream { p ->
     prop.load(p)
 }
 
-// load postgresql-9.3-1102-jdbc4.jar
-this.class.classLoader.rootLoader.addURL(new URL('file:///../../../../postgresql-9.3-1102-jdbc4.jar'))
+// load postgresql driver
+//this.class.classLoader.rootLoader.addURL(new URL('file:///../../../../postgresql-9.3-1102-jdbc4.jar'))
 
 println "Going to connect to " + prop.getProperty("db.url")
 
@@ -83,6 +83,15 @@ def listDBLocks94 =
         "ORDER BY age DESC;"
 
 
-def query = "SELECT version();"// based on version, run the appropriate query
+def versionQuery = "SELECT version();"
 //        PostgreSQL 9.0.23 on x86_64-unknown-linux-gnu, compiled by GCC gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-16), 64-bit
-sql.eachRow(query){ row -> println row}
+sql.eachRow(versionQuery) { row ->
+        println row
+}
+
+// based on version, run the appropriate query
+sql.eachRow(listDBLocks90) { row ->
+        println row
+        //  client_port | blocking_pid | blocking_user | blocking_query | client_port | blocked_pid | blocked_user | blocked_query | age
+        // no rows --> no locks
+}
