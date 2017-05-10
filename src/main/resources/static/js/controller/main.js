@@ -5,6 +5,9 @@
 
 var healthCheck = angular.module('HealthCheckApp', ['ui.router','ngAnimate']);
 
+
+$scope.name = "test";
+
 healthCheck.config(function($stateProvider) {
 
     var homepage = {
