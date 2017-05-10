@@ -15,9 +15,15 @@ healthCheck.config(function($stateProvider,$urlRouterProvider) {
         url: '/',
         templateUrl: 'html/home.html'
     };
+    var manage_plugins = {
+        name: 'manage_plugins',
+        url: '/',
+        templateUrl: 'html/manage_plugins.html'
+    };
 
 
     $urlRouterProvider.otherwise('/');
     $stateProvider.state(homepage);
+    $stateProvider.state(manage_plugins);
 
 });
