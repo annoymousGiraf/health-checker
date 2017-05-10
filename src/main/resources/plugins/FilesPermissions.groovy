@@ -17,7 +17,6 @@ def execute() {
     proc.waitForOrKill(10000)
     def fileLines = sout.toString().split('\n')
 
-//    def res = '{"status":"OK","details":"test succeeded","solution_suggestion":""}'
     def res1 = ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
 
     problematicFiles = []
