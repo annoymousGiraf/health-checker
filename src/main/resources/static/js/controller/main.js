@@ -27,6 +27,7 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
     });
 
     $scope.run_plugin = function (plugin_name) {
+        var icon = "<span class='glyphicon glyphicon-ok-sign'></span>";
         var fieldNameElement = document.getElementById(plugin_name);
         if ($scope.summary === "Health check hasn't run yet."){
             $scope.summary = "";
@@ -36,11 +37,12 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
             var font = "green";
             if (data.status === "Failed"){
                 font ="red";
+                icon = "<span class='glyphicon glyphicon-remove-sign'></span>";
                 document.getElementById(plugin_name+plugin_name+plugin_name).style.display = '';
                 $scope.numberOfFailures = $scope.numberOfFailures + 1;
 
             }
-            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+data.status +"</p>";
+            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+ icon +"</p>";
            var result = document.getElementById(plugin_name+plugin_name);
            result.innerHTML = "<b>Details: </b>"+ data.details +"<br><b>  Solution Suggestion: </b>" +data.solution_suggestion;
          
@@ -53,9 +55,6 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
           $scope.run_plugin(value.name);
 
         });
-
-       
-
     }
 
 
