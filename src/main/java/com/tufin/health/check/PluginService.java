@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class PluginService {
@@ -44,7 +45,7 @@ public class PluginService {
                     .collect(Collectors.toList());
 */
         if (pluginFiles != null) {
-            List<File> scriptFiles = Arrays.asList(pluginFiles);
+            List<File> scriptFiles = Arrays.asList(pluginFiles).stream().filter(File::isFile).collect(Collectors.toList());
 
             if (scriptFiles == null) {
                 LOGGER.error("scriptFiles is null");
