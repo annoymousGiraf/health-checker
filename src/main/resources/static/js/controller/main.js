@@ -26,6 +26,11 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
         $scope.plugin_list = data;
     });
 
+    $scope.run_single_plugin = function (plugin_name) {
+        $scope.numberOfFailures =0;
+        $scope.run_plugin(plugin_name);
+    }
+
     $scope.run_plugin = function (plugin_name) {
         var icon = "<span class='glyphicon glyphicon-ok-sign'></span>";
         var fieldNameElement = document.getElementById(plugin_name);
@@ -51,6 +56,7 @@ healthCheck.controller('HealthCheckController', ['$scope','health_check_service'
     }
 
     $scope.runAll = function () {
+        $scope.numberOfFailures =0;
         angular.forEach($scope.plugin_list, function(value, key) {
           $scope.run_plugin(value.name);
 

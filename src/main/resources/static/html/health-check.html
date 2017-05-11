@@ -5,7 +5,7 @@
         <div ng-repeat="plugin in plugin_list">
         <div class="row"  style="margin-top: 5px;">
             <div class="col-md-1">
-                <button class="btn btn-success" ng-click="run_plugin(plugin.name)"> <span class="glyphicon glyphicon-play-circle"></span></button>
+                <button class="btn btn-success" ng-click="run_single_plugin(plugin.name)"> <span class="glyphicon glyphicon-play-circle"></span></button>
             </div>
             <div class="col-md-2">
                 {{plugin.name}}
