@@ -1,13 +1,41 @@
+
+
+
 <div ng-controller="HealthCheckController">
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
     <div class="container-fluid">
-        Run All :
-        <button class="btn btn-primary" ng-click="runAll()" style="border-radius: 25%;"> <span class="glyphicon glyphicon-play-circle"></span></button>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Plugins</h3>
+                    </div>
+                    <div class="col-md-4" style="margin-top: 10px;">
+                        <div class="pull-right">
+                           
+                            <button class="btn btn-primary" ng-click="runAll()"  data-toggle="tooltip" data-placement="top" title="Run All" style="border-radius: 25%;"> <span class="glyphicon glyphicon-fast-forward"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+
+
+
+        
         <div ng-repeat="plugin in plugin_list">
         <div class="row"  style="margin-top: 5px;">
             <div class="col-md-1">
-                <button class="btn btn-success" ng-click="run_single_plugin(plugin.name)"> <span class="glyphicon glyphicon-play-circle"></span></button>
+                <a class="btn btn-primary" ng-click="run_single_plugin(plugin.name)"> <span class="glyphicon glyphicon-play-circle" style="font-size: 18px;"></span></a>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2" style="margin-top: 4px;">
                 {{plugin.name}}
             </div>
             <div class="col-md-6">
@@ -34,6 +62,8 @@
                        
                 </div>
                 </div>
+            </div>
+        </div>
             </div>
         </div>
         <br>
