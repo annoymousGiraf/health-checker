@@ -11,11 +11,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.HashMap;
 import java.util.Map;
 
 
-public class GroovyRunner {
+public class GroovyRunner implements ScriptRunner {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GroovyRunner.class);
     private GroovyShell shell;
@@ -31,6 +30,7 @@ public class GroovyRunner {
         m.invoke(script);
     }
 
+    @Override
     public Map<String,String> executeScriptFile(String fileName)  {
         try {
             PluginScript pluginScript = getPluginScript(fileName);
@@ -41,6 +41,7 @@ public class GroovyRunner {
         return ImmutableMap.of("status", "Failed", "details", "failed to execute script", "solution_suggestion", "");
     }
 
+    @Override
     public String getDescription(String fileName)  {
         try {
             PluginScript pluginScript = getPluginScript(fileName);

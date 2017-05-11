@@ -18,6 +18,7 @@ public class HelloController {
 
     @RequestMapping("/plugins")
     public List<PluginObject> getAllPlugins() {
+        pluginService.initializePlugins();
         return pluginService.getListOfAllPlugins();
     }
 

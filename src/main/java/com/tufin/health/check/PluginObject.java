@@ -6,14 +6,16 @@ public class PluginObject {
     private String name;
     private String fileName;
     private String description;
+    private String fileType;
 
     public PluginObject() {
     }
 
-    public PluginObject(String name, String fileName, String description) {
+    public PluginObject(String name, String fileName, String description, String fileType) {
         this.name = name;
         this.fileName = fileName;
         this.description = description;
+        this.fileType = fileType;
     }
 
     public String getName() {
@@ -38,5 +40,9 @@ public class PluginObject {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getFileType() {
+        return fileType;
     }
 }

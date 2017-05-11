@@ -22,4 +22,9 @@ public class PluginTable {
     PluginObject getPluginByName(String name) {
         return plugins.get(name);
     }
+
+    public void clean()
+    {
+        plugins.clear();
+    }
 }

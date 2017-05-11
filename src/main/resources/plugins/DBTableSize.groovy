@@ -6,12 +6,9 @@ import groovy.sql.Sql
  * @author marina.bunin
  * @since 10/05/2017
  */
-
-
-
+thresholdBase = 100
 def execute() {
     println("DB Table Size Plugin Greeting")
-    def thresholdBase = 100
     def threshold = thresholdBase * 1024 * 1024;
     println "This plugin display tables that size bigger then " + threshold + " bytes"
 
@@ -48,20 +45,20 @@ def execute() {
     def resultList = []
     sql.eachRow(tableSizeQuery) { row ->
         println row
-        resultList << row
+        resultList << row.relation
     }
 
     if(resultList.size() > 0)
     {
-        return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
+        return ["status":"Failed", "details":"Following tables exceeded "+thresholdBase+" MB: \n" + resultList +"\n", "solution_suggestion":"Run vacuum on large tables"]
     }
-    return ["status":"Failed", "details":"One or more tables exceeded "+100+" MB", "solution_suggestion":"Run vacuum on large tables"]
+    return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
+
 }
 
 def getDescription()
 {
-
-        return "Check if there are tables larger then 100 MB"
+    return "Check if there are tables larger than " + thresholdBase + " MB"
 }
 
 this
