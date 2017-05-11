@@ -2,7 +2,8 @@
     <div class="container-fluid">
         Run All :
         <button class="btn btn-primary" ng-click="runAll()" style="border-radius: 25%;"> <span class="glyphicon glyphicon-play-circle"></span></button>
-        <div class="row" ng-repeat="plugin in plugin_list" style="margin-top: 5px;">
+        <div ng-repeat="plugin in plugin_list">
+        <div class="row"  style="margin-top: 5px;">
             <div class="col-md-1">
                 <button class="btn btn-success" ng-click="run_plugin(plugin.name)"> <span class="glyphicon glyphicon-play-circle"></span></button>
             </div>
@@ -14,8 +15,22 @@
             </div>
             <div class="col-md-2">
                 <div id="{{plugin.name}}" ></div>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$index}}">Details</button>
+
+            </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                <div id="{{$index}}" class="collapse">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                </div>
             </div>
         </div>
+
     </div>
 
 </div>
+
