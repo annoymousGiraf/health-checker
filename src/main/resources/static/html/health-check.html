@@ -13,23 +13,40 @@
             <div class="col-md-6">
                 {{plugin.description}} 
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <div id="{{plugin.name}}" ></div>
-                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$index}}">Details</button>
 
+
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#{{$index}}" style="display: none;" id="{{plugin.name}}{{plugin.name}}{{plugin.name}}">Details</button>
             </div>
             </div>
             <div class="row">
                 <div class="container-fluid">
                 <div id="{{$index}}" class="collapse">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <div id="{{plugin.name}}{{plugin.name}}" class="alert alert-danger" role="alert" style="margin-top: 5px;">
+                        <div >
+
+                           
+                        </div>
+                    </div>
+                       
                 </div>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="panel panel-success " ng-class="{'panel-danger':numberOfFailures > 0}">
+            <div class="panel-heading" >
 
+                        Report Summary
+
+            </div>
+            <div class="panel-body" id="summary">
+                System Tests Failed : {{numberOfFailures}}   of   {{plugin_list.length}}
+            </div>
+        </div>
     </div>
 
 </div>

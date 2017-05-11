@@ -1,5 +1,5 @@
 /**
- * Created by Guy.Peleg on 5/10/2017.
+ * Created by Guy.Peleg0/2017.
  */
 
 
@@ -15,30 +15,46 @@ healthCheck.controller('mainController', ['$scope', function($scope) {
 
 
 healthCheck.controller('HealthCheckController', ['$scope','health_check_service', function($scope,health_check_service) {
-    $scope.plugin_list =[];
+    $scope.plugin_list =[ ] ;
+    $scope.results = [];
+    $scope.numberOfFailures =0;
+    $scope.summary = "Health check hasn't run yet.";
+
+
     health_check_service.get_plugins_list().then(function(data)
     {
         $scope.plugin_list = data;
     });
 
-
     $scope.run_plugin = function (plugin_name) {
         var fieldNameElement = document.getElementById(plugin_name);
+        if ($scope.summary === "Health check hasn't run yet."){
+            $scope.summary = "";
+        }
         fieldNameElement.innerHTML = '<img src="img/loading_icon.gif">';
-        health_check_service.run_plugin(plugin_name).then(function (data) {
-            console.log(data);
+       health_check_service.run_plugin(plugin_name).then(function (data) {
             var font = "green";
             if (data.status === "Failed"){
                 font ="red";
+                document.getElementById(plugin_name+plugin_name+plugin_name).style.display = '';
+                $scope.numberOfFailures = $scope.numberOfFailures + 1;
+
             }
-            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+data.status+ " "+ data.details +"</p>";
+            fieldNameElement.innerHTML = "<p style=\'color:"+font+";\'>"+data.status +"</p>";
+           var result = document.getElementById(plugin_name+plugin_name);
+           result.innerHTML = "<b>Details: </b>"+ data.details +"<br><b>  Solution Suggestion: </b>" +data.solution_suggestion;
+         
         });
+
     }
 
     $scope.runAll = function () {
         angular.forEach($scope.plugin_list, function(value, key) {
-            $scope.run_plugin(value.name);
+          $scope.run_plugin(value.name);
+
         });
+
+       
 
     }
 
