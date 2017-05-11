@@ -6,6 +6,9 @@ import groovy.sql.Sql
  * @author marina.bunin
  * @since 10/05/2017
  */
+
+
+
 def execute() {
     println("DB Table Size Plugin Greeting")
     def thresholdBase = 100
@@ -57,8 +60,8 @@ def execute() {
 
 def getDescription()
 {
-    def thresholdBase = "stub"
-        return "Check if there are tables larger then " + thresholdBase + " MB"
+
+        return "Check if there are tables larger then 100 MB"
 }
 
 this
