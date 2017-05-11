@@ -108,9 +108,10 @@ def execute() {
 
     if(resultList.size() > 0)
     {
-        return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
+        return ["status":"Failed", "details":"Found one or more locks", "solution_suggestion":"Contact Tufin support"]
     }
-    return ["status":"Failed", "details":"Found one or more locks", "solution_suggestion":"Contact Tufin support"]
+    return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
+
 }
 
 def getDescription(){

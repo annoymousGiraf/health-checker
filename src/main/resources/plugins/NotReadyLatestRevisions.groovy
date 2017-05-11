@@ -39,9 +39,10 @@ def execute() {
 
     if(resultList.size() > 0)
     {
-        return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
+        return ["status":"Failed", "details":"One or more revisions are not ready", "solution_suggestion":"Wait for revisions to complete"]
     }
-    return ["status":"Failed", "details":"One or more revisions are not ready", "solution_suggestion":"Wait for revisions to complete"]
+    return ["status":"OK", "details":"test succeeded", "solution_suggestion":""]
+
 }
 
 def getDescription()
