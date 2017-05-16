@@ -4,15 +4,7 @@ jdk:
 cache:
   directories: $HOME/.gradle
 notifications:
-  email:
-      - guy.peleg@tufin.com
-      - Stas.Obydionnov@tufin.com
-      - marina.bunin@tufin.com
-      - shoshy.kraus@tufin.com
-      - sara.movshovitz@tufin.com
-      - roei.buxbaum@tufin.com
-      - maayan.langer@tufin.com
-      - yossi.assor@tufin.com 
+  email: false
 script:
   ./gradlew distTar
 before_deploy:
